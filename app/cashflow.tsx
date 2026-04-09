@@ -10,6 +10,14 @@ interface IncomeExpense {
   year: number;
 }
 
+interface NewEntryType {
+  type: 'income' | 'expense';
+  category: string;
+  amount: string;
+  month: number;
+  year: number;
+}
+
 export default function CashFlowPage() {
   const [entries, setEntries] = useState<IncomeExpense[]>([
     { id: 1, type: 'income', category: 'Salary', amount: 75000, month: 4, year: 2026 },
@@ -19,8 +27,8 @@ export default function CashFlowPage() {
     { id: 5, type: 'expense', category: 'Utilities', amount: 3000, month: 4, year: 2026 },
   ]);
 
-  const [newEntry, setNewEntry] = useState({
-    type: 'income' as const,
+  const [newEntry, setNewEntry] = useState<NewEntryType>({
+    type: 'income',
     category: '',
     amount: '',
     month: 4,
@@ -210,12 +218,7 @@ export default function CashFlowPage() {
           <select
             style={styles.input}
             value={newEntry.type}
-            onChange={(e) => {
-              const value = e.target.value;
-              if (value === 'income' || value === 'expense') {
-                setNewEntry({ ...newEntry, type: value });
-              }
-            }}
+            onChange={(e) => setNewEntry({ ...newEntry, type: e.target.value as 'income' | 'expense' })}
           >
             <option value="income">Income</option>
             <option value="expense">Expense</option>
