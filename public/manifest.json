@@ -1,0 +1,8 @@
+{
+  "name": "Personal Finance Tracker",
+  "short_name": "MyWealth",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0070f3"
+}
