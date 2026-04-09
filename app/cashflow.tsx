@@ -210,7 +210,12 @@ export default function CashFlowPage() {
           <select
             style={styles.input}
             value={newEntry.type}
-            onChange={(e) => setNewEntry({ ...newEntry, type: e.target.value as 'income' | 'expense' })}
+            onChange={(e) => {
+              const value = e.target.value;
+              if (value === 'income' || value === 'expense') {
+                setNewEntry({ ...newEntry, type: value });
+              }
+            }}
           >
             <option value="income">Income</option>
             <option value="expense">Expense</option>
