@@ -1,6 +1,7 @@
 {
   "name": "mywealth-portfolio",
-  "version": "1.0.0",
+  "version": "2.0.0",
+  "description": "Comprehensive personal wealth tracking app with FinBoom-inspired features",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,7 +10,9 @@
   "dependencies": {
     "next": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "recharts": "^2.10.0",
+    "axios": "^1.6.0"
   },
   "devDependencies": {
     "@types/node": "^25.5.2",
